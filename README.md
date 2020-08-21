@@ -78,9 +78,13 @@ These maps utilized total sightings recorded. Where have the most recent sightin
 
 <img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/state_last_10.png'>
 
-#### Are there any patterns to the bigfoot sighting reports narratives?
+#### Are there any patterns to what people said in their bigfoot sighting reports?
 
-We wanted to look 
+We wanted to look at the text of the reports themselves to see if they fit into obvious groups. Once we had our text in the right format, it was easy to apply a few different machine learning models to analyze the text. The two primary models we used were K-Means and NMF. 
+
+K-Means was used to try to group the collection of observations into 5 different groupings based upon common words and their frequency. The model outputs the most important words it found for each group.
+
+
 
 
 
