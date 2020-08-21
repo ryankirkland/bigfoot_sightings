@@ -26,6 +26,11 @@ Straightened out the filing cabinet and then obtained relevant time, geographic,
 
 <img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/df.png'>
 
+### Text preprocessing--functions and methods
+- Machine learning models need to have text converted into a format that they can use. 
+- The steps we took to turn the text into machine-readable 'data' included stripping punctuation, tokenizing, lemmatization, and removing stopwords.
+- We then 'vectorized' each observation so that the models could compare them.
+
 ## EDA
 
 The examination was a grouping of classification type.
