@@ -84,7 +84,11 @@ We wanted to look at the text of the reports themselves to see if they fit into 
 
 K-Means was used to try to group the collection of observations into 5 different groupings based upon common words and their frequency. The model outputs the most important words it found for each group.
 
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/kmeans_raw.png'>
 
+NMF was used to determine any potential topics from the observations - the results from NMF unveiled similar topics to those found from the K-Means clustering.
+
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/raw_nmf.png'>
 
 
 
