@@ -6,15 +6,24 @@
 
 The goal for this analysis is to uncover trends in bigfoot sighting data from BFRO.net.
 
+## Tools & techniques featured in this project
+- Tools: Python, Jupyter Notebook, Pandas,Beautiful Soup, SkLearn, SciPy, PlotLy
+- Techniques: Data wrangling, EDA, NLP, KNN, K-Means
+
 ## The Data
 
-The supplied data was html content from bigfoot sighting submission web pages stored in JSON:
+### Text ingestion
+### Source selection
+The supplied data was html content from bigfoot sighting submission web pages stored in JSON.
+We chose to use this data. We looked for other sources, but found that the publishers of this information took the most care to be most credible. A team of researchers would follow up on each sighting with an interview and collection of 'evidence' and attempt to consistently classify the report. They only publish the top three tiers of credibility--A through C in order of most to least evidence.
 
-#### Raw Data:
+### Data import and data wrangling
 <img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/og.png'>
 
-Using BeautifulSoup, the data was parsed into useful subsections for EDA:
-#### DataFrame:
+Using BeautifulSoup, the data was parsed into useful subsections for EDA.
+Data was pretty messy--think of looking through a filing cabinet for a document where the person who was in charge of filing didn't reliably put files in the right folders.
+Straightened out the filing cabinet and then obtained relevant time, geographic, and qualitative information.
+
 <img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/df.png'>
 
 ## EDA
@@ -55,3 +64,36 @@ As expected, Summer is the leading season for submissions, as it is the most pop
 Interestingly, submissions of bigfoot sightings peaked in the early 2000s, continuing to trail down as we get closer to today:
 
 <img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/year.png'>
+
+#### Geographic distribution of sightings
+A map of total sightings by county was created to show where sightings have occurred.
+
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/bigfoot_map.png'>
+
+Given that bigfoot doesn't abide by county boundaries, we regionalized the data using a KNN model. This creates a 'prediction' of where to look for bigfoot.
+
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/bigfoot_prediction.png'>
+
+These maps utilized total sightings recorded. Where have the most recent sightings occurred?
+
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/state_last_10.png'>
+
+#### Text preprocessing--functions and methods
+- Machine learning models need to have text converted into a format that they can use. 
+- The steps we took to turn the text into machine-readable 'data' included stripping punctuation, tokenizing, lemmatization, and removing stopwords.
+- We then 'vectorized' each observation so that the models could compare them.
+
+#### Are there any patterns to what people said in their bigfoot sighting reports?
+
+We wanted to look at the text of the reports themselves to see if they fit into obvious groups. Once we had our text in the right format, it was easy to apply a few different machine learning models to analyze the text. The two primary models we used were K-Means and NMF. 
+
+K-Means was used to try to group the collection of observations into 5 different groupings based upon common words and their frequency. The model outputs the most important words it found for each group.
+
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/kmeans_raw.png'>
+
+NMF was used to determine any potential topics from the observations - the results from NMF unveiled similar topics to those found from the K-Means clustering.
+
+<img src='https://github.com/ryankirkland/bigfoot_sightings/blob/master/img/raw_nmf.png'>
+
+
+
